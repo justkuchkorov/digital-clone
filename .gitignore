@@ -3,6 +3,9 @@
 !.env.example
 venv/
 .venv/
+.vendor/
+.tmp/
+.tools/
 __pycache__/
 *.pyc
 chroma_db/

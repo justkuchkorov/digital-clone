@@ -22,6 +22,11 @@ import shutil
 import argparse
 from pathlib import Path
 from datetime import datetime
+
+_vendor_dir = Path(__file__).resolve().parent / ".vendor"
+if sys.version_info[:2] == (3, 11) and _vendor_dir.exists() and str(_vendor_dir) not in sys.path:
+    sys.path.insert(0, str(_vendor_dir))
+
 from groq import Groq
 from config import GROQ_API_KEY, WIKI_DIR, DATA_DIR
 

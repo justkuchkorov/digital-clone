@@ -1,0 +1,210 @@
+{
+  "main": {
+    "id": "ac5f8b4e8e72b4ca",
+    "type": "split",
+    "children": [
+      {
+        "id": "621353fe775a9fa1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7ed33086bffe4427",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "adb01c2e9c319205",
+    "type": "split",
+    "children": [
+      {
+        "id": "10d096ff27384f50",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e87c61f1beaf51cd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "0bf1c9e79882dd70",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "15d9f81fb974aef1",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "00cb09dd5d839450",
+    "type": "split",
+    "children": [
+      {
+        "id": "21e6c99dbef521f5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d92b5c218f31fe3f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "struggles.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for struggles"
+            }
+          },
+          {
+            "id": "75dc263915f754ee",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "struggles.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from struggles"
+            }
+          },
+          {
+            "id": "908d33c6c2f4ff8b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "f45ca3d0f8e8fa93",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "17fa00447920f7e0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "struggles.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of struggles"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "7ed33086bffe4427",
+  "lastOpenFiles": [
+    "instagram-dm-kuvonchbekkuchkorov.md",
+    "workandtravel.md",
+    "claude-plans.md",
+    "thesis.md",
+    "learned.md",
+    "chat-abdurakhmon-aka.md",
+    "Internship-hetuz.md",
+    "social-instagram.md",
+    "projects.md",
+    "chat-akbar.md",
+    "index.md",
+    "football.md",
+    "preferences.md",
+    "chat-alyor.md",
+    "chat-asror.md",
+    "chat-kuvonchbek.md",
+    "study.md",
+    "struggles.md",
+    "social-overview-my-big-tg-history-2.md",
+    "social-overview-my-big-tg-history.md",
+    "identity.md",
+    "education.md",
+    "channel-my-tg-channel.md",
+    "chat-javohir.md",
+    "chat-alkeldi.md"
+  ]
+}

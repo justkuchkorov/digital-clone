@@ -3,6 +3,11 @@ import re
 import tempfile
 import os
 from pathlib import Path
+
+VENDOR_DIR = Path(__file__).resolve().parent / ".vendor"
+if sys.version_info[:2] == (3, 11) and VENDOR_DIR.exists() and str(VENDOR_DIR) not in sys.path:
+    sys.path.insert(0, str(VENDOR_DIR))
+
 import telebot
 
 
@@ -13,7 +18,7 @@ def md_to_html(text: str) -> str:
     text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
     return text
 from groq import Groq
-from config import TELEGRAM_BOT_TOKEN, GROQ_API_KEY, WIKI_DIR
+from config import TELEGRAM_BOT_TOKEN, GROQ_API_KEY, OWNER_ID, WIKI_DIR
 from brain import get_response, clear_history
 import threading
 
@@ -76,9 +81,6 @@ def send_welcome(message):
         "/help — show this message"
     )
     bot.reply_to(message, welcome_text, parse_mode="HTML")
-
-
-OWNER_ID = 1946444733  # Abdurakhmon's Telegram user ID
 
 
 @bot.message_handler(commands=['digest'])

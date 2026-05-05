@@ -4,7 +4,15 @@ import os
 import json
 import argparse
 from pathlib import Path
-from config import DATA_DIR, COLLECTION_PROFILE, COLLECTION_CONVERSATIONS, CHUNK_SIZE, CHUNK_OVERLAP
+from config import (
+    DATA_DIR,
+    WIKI_DIR,
+    COLLECTION_PROFILE,
+    COLLECTION_CONVERSATIONS,
+    COLLECTION_DOCUMENTS,
+    CHUNK_SIZE,
+    CHUNK_OVERLAP,
+)
 from memory import add_texts, chunk_text, get_stats
 
 sys.stdout.reconfigure(encoding="utf-8")
@@ -165,10 +173,39 @@ def ingest_telegram_chats():
     print(f"Total chat chunks ingested: {total_chunks}")
 
 
+def ingest_wiki_pages():
+    """Ingest compiled wiki markdown pages into the document collection."""
+    wiki_path = Path(WIKI_DIR)
+    if not wiki_path.exists():
+        print(f"Wiki directory not found at {wiki_path}")
+        return
+
+    wiki_files = [
+        f for f in sorted(wiki_path.glob("*.md"))
+        if f.name not in ("index.md",) and f.read_text(encoding="utf-8").strip()
+    ]
+    if not wiki_files:
+        print("No wiki pages found to ingest.")
+        return
+
+    all_chunks = []
+    all_metadatas = []
+    for wiki_file in wiki_files:
+        content = wiki_file.read_text(encoding="utf-8")
+        page_chunks = chunk_text(content, CHUNK_SIZE, CHUNK_OVERLAP)
+        for chunk in page_chunks:
+            all_chunks.append(chunk)
+            all_metadatas.append({"source": "wiki", "page": wiki_file.name})
+
+    count = add_texts(COLLECTION_DOCUMENTS, all_chunks, all_metadatas)
+    print(f"Ingested wiki: {count} chunks from {len(wiki_files)} pages")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Ingest data into Digital Clone knowledge base")
     parser.add_argument("--profile", action="store_true", help="Ingest personal profile")
     parser.add_argument("--chats", action="store_true", help="Ingest Telegram chat exports")
+    parser.add_argument("--wiki", action="store_true", help="Ingest compiled wiki pages")
     parser.add_argument("--all", action="store_true", help="Ingest everything")
     parser.add_argument("--stats", action="store_true", help="Show knowledge base stats")
     args = parser.parse_args()
@@ -180,15 +217,19 @@ def main():
             print(f"  {name}: {count} documents")
         return
 
-    if args.all or (not args.profile and not args.chats):
+    if args.all or (not args.profile and not args.wiki and not args.chats):
         # Default: ingest everything
         print("=== Ingesting Profile ===")
         ingest_profile()
+        print("\n=== Ingesting Wiki ===")
+        ingest_wiki_pages()
         print("\n=== Ingesting Telegram Chats ===")
         ingest_telegram_chats()
     else:
         if args.profile:
             ingest_profile()
+        if args.wiki:
+            ingest_wiki_pages()
         if args.chats:
             ingest_telegram_chats()
 
